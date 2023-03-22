@@ -1,5 +1,12 @@
 import crayons
 import os
+from replit import db
+
+try:
+    import secrets
+    secrets.load(os, db)
+except Exception:
+    print("Please talk to py660")
 
 print(crayons.yellow("Starting Application...")) # type: ignore
 
@@ -28,7 +35,6 @@ import time
 import binascii
 from google.oauth2 import id_token
 from google.auth.transport import requests
-from replit import db
 from py.session import verifyToken, generateToken # type: ignore
 #from google import verifyGoogle as verify
 
