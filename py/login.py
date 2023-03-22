@@ -5,7 +5,7 @@ if True:
     import bcrypt
     import crayons
     import json
-    from session import generateToken, verifyToken
+    from py.session import generateToken, verifyToken
     data = os.environ['json_data']
     projectId = os.environ['projectId']
     jsonData = json.loads(data)
