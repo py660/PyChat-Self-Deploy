@@ -1,5 +1,7 @@
 # Secrets
-secrets.py
+secrets.json
+
+# Ephemeral Storage Database
 
 # Byte-compiled / optimized / DLL files
 __pycache__/
