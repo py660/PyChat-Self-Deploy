@@ -9,6 +9,7 @@ other
 # Necessary but useless files
 db.json 
 favicon.ico
+terminal.ico
 **/__init__.py
 shh.py
 README.md
