@@ -1,15 +1,19 @@
-# Secrets
+# Secrets & Security
 secrets.json
+*.vsls.json
 
-# Security
-.vsls.json
-
-# Ephemeral Storage Database
-db.json
-
-# Debug
+#DEBUG
 debug
 other
+
+# Necessary but useless files
+db.json 
+favicon.ico
+**/__init__.py
+shh.py
+README.md
+nginx.conf
+nginx.sh
 
 # Byte-compiled / optimized / DLL files
 __pycache__/
