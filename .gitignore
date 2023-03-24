@@ -1,7 +1,11 @@
 # Secrets
 secrets.json
 
+# Security
+.vsls.json
+
 # Ephemeral Storage Database
+db.json
 
 # Byte-compiled / optimized / DLL files
 __pycache__/

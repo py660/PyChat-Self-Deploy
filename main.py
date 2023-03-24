@@ -1,10 +1,12 @@
 import crayons
 import os
-from replit import db
+import copy
+import subprocess
+from py.replit import db
 
 try:
-    import secrets
-    secrets.load(os, db)
+    import shh
+    shh.load(os, db)
 except Exception:
     print("Please talk to py660")
 
@@ -15,12 +17,12 @@ import py.login # type: ignore
 from py.login import verifyBasic # type: ignore
 
 print(crayons.blue("Starting Fallback Server...")) # type: ignore
-os.system("python3 py/backup.py > /dev/null &")
+subprocess.Popen("python3 py/backup.py > /dev/null", shell=True)
 
 
 print(crayons.blue("Starting SocketIO Server...")) # type: ignore
-#os.system("python3 server.py > /dev/null &")
-os.system("python3 py/server.py &")
+#subprocess.Popen("python3 server.py > /dev/null &")
+subprocess.Popen("python3 py/server.py &", shell=True)
 print(crayons.blue("Serving WS on port 7001...")) # type: ignore
 
 
@@ -39,9 +41,12 @@ from py.session import verifyToken, generateToken # type: ignore
 #from google import verifyGoogle as verify
 
 
-
-for key in db.keys():
-    del db[key]
+db_backup = copy.copy(db)
+for key in db_backup.keys():
+    try:
+        del db[key]
+    except Exception:
+        continue
 a = set()
 b = dict()
 db["userDB"] = list()
@@ -225,7 +230,7 @@ class MyHandler(SimpleHTTPRequestHandler):
 
 with HTTPServer(("127.0.0.1", 7000), MyHandler) as server:
     print(crayons.blue("Setting up nginx...")) # type: ignore
-    os.system("bash         nginx.sh &")
+    subprocess.Popen(["bash", "nginx.sh"])
     
     print(crayons.blue("Serving HTTP on port 7000...\n")) # type: ignore
     print(crayons.green("Ready.", bold=True)) # type: ignore
@@ -233,4 +238,4 @@ with HTTPServer(("127.0.0.1", 7000), MyHandler) as server:
 
 
 print("hi")
-os.system("pkill -9 nginx")
+subprocess.Popen(["killall", "nginx"])
