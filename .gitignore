@@ -7,6 +7,10 @@ secrets.json
 # Ephemeral Storage Database
 db.json
 
+# Debug
+debug
+other
+
 # Byte-compiled / optimized / DLL files
 __pycache__/
 *.py[cod]
